@@ -41,7 +41,9 @@ const buildCustomWorker = ({ id, basedir, customWorkerDir, destdir, plugins, min
     target: 'webworker',
     entry: {
       main: customWorkerEntry
-    },
+    },resolve: {
+    fullySpecified: false,
+  },
     resolve: {
       extensions: ['.ts', '.js'],
       fallback: {
@@ -64,6 +66,9 @@ const buildCustomWorker = ({ id, basedir, customWorkerDir, destdir, plugins, min
       rules: [
         {
           test: /\.(t|j)s$/i,
+          resolve: {
+            fullySpecified: false,
+          },
           use: [
             {
               loader: 'babel-loader',
