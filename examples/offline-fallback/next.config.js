@@ -1,8 +1,10 @@
-const withPWA = require('next-pwa')
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  swSrc: 'service-worker.js'
+})
 
 module.exports = withPWA({
-  pwa: {
-    dest: 'public',
-    swSrc: 'service-worker.js'
+  images: {
+    domains: ['source.unsplash.com']
   }
 })
